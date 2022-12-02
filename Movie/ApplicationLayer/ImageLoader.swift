@@ -65,22 +65,7 @@ class ImageLoader: UIImageView {
     }
     
     func loadImageWithAsset(_ name: String) {
-
-        // setup activityIndicator...
-//        activityIndicator.color = .darkGray
-//
-//        addSubview(activityIndicator)
-//        activityIndicator.translatesAutoresizingMaskIntoConstraints = false
-//        activityIndicator.centerXAnchor.constraint(equalTo: centerXAnchor).isActive = true
-//        activityIndicator.centerYAnchor.constraint(equalTo: centerYAnchor).isActive = true
-
-        
-
-      
-        
-        
-
-        guard let imageToCache = UIImage(named: "placeholder") else {return}
+        guard let imageToCache = UIImage(named: name) else {return}
         self.image = imageToCache
         imageCache.setObject(imageToCache, forKey: name as AnyObject)
     }

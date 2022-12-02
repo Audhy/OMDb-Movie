@@ -57,7 +57,6 @@ extension MovieViewController: MoviePresenterOutput {
         self.movies?.Search.append(contentsOf: movies.Search)
         self.movieView?.activityView.stopAnimating()
         movieView?.collectionView.reloadData()
-        //        wishlistView?.tableView.reloadData()
         
     }
     
@@ -100,13 +99,7 @@ extension MovieViewController: UICollectionViewDataSource {
                         cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
         var data:[Search] = movies?.Search ?? []
-        
-//        if filteredPokemons.count > 0 {
-//            data = filteredPokemons
-//        } else {
-//            data = pokemons
-//        }
-        
+                
         let totalResult = Int(movies?.totalResults ?? "0") ?? 0
         if collectionView.isLast(for: indexPath) && (movies?.Search.count ?? 0) < totalResult{
             if data.count > 6 {
@@ -116,22 +109,19 @@ extension MovieViewController: UICollectionViewDataSource {
         }
         
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "Cell", for: indexPath) as! MovieCell
-        cell.titleLabel.text = data[indexPath.row].title
+        cell.titleLabel.text = data[indexPath.row].title ?? ""
         if data[indexPath.row].poster != "N/A" {
-            let url = URL(string: data[indexPath.row].poster)
+            let url = URL(string: data[indexPath.row].poster ?? "")
             
             let ImagePath = data[indexPath.item].poster
-            if  let strUrl = ImagePath.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
+            if  let strUrl = ImagePath?.addingPercentEncoding(withAllowedCharacters: .urlFragmentAllowed),
                 let imgUrl = URL(string: strUrl) {
                 
                 cell.movieImageView.loadImageWithUrl(imgUrl)
             }
         } else {
-            let url = URL(string: "https://media.istockphoto.com/id/922962354/vector/no-image-available-sign.jpg?b=1&s=170667a&w=0&k=20&c=VqpxaeBt-p0q2JlujQV-0fmCsaD3NeP4mmOUX4uZEIc=")
-            
-            let ImagePath = data[indexPath.item].poster
-            
-            cell.movieImageView.loadImageWithAsset(ImagePath)
+                        
+            cell.movieImageView.loadImageWithAsset("placeholder")
             
         }
        
