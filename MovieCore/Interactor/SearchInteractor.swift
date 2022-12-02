@@ -13,7 +13,7 @@ public protocol SearchInteractor: class {
 }
 
 public class SearchInteractorImplementation: SearchInteractor {
-    var presenter: SearchPresenter?
+    public var presenter: SearchPresenter?
     private let searchService:SearchService
     var searchData: SearchModel?
     public init(searchService:SearchService){

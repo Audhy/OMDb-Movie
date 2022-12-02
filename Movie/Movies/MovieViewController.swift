@@ -9,13 +9,7 @@ import Foundation
 import UIKit
 import MovieCore
 
-protocol MoviePresenterOutput: class {
-    func presenter(didRetrieveMovies movies: SearchModel)
-    func presenter(didFailRetrieveMovies message: String)
-    
-    func presenter(didObtainMovie movie: MovieModel)
-    func presenter(didFailObtainMovie message: String)
-}
+
 
 class MovieViewController: UIViewController {
     

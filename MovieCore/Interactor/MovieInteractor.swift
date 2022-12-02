@@ -17,7 +17,7 @@ public class MovieInteractorImplementation: MovieInteractor {
     var movie: MovieModel?
     var page: Int
     private let movieService:MovieService
-    var presenter: MoviePresenter?
+    public var presenter: MoviePresenter?
     let searchService:SearchService
     
     public init(movieService:MovieService, searchService:SearchService){

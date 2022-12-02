@@ -9,10 +9,7 @@ import Foundation
 import MovieCore
 import UIKit
 
-protocol MovieDetailPresenterOutput: class {
-    func presenter(didRetrieveMovie movies: MovieModel)
-    func presenter(didFailRetrieveMovie message: String)
-}
+
 
 class MovieDetailViewController: UIViewController, UIScrollViewDelegate {
     
