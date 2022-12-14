@@ -10,10 +10,6 @@ import MovieCore
 import UIKit
 import Reachability
 
-protocol SearchPresenterOutput: class {
-    func presenter(movieTitle: String, movieYear: String?, movieType: String?, didSearch movies: SearchModel)
-    func presenter(didFailSearch message: String)
-}
 
 class SearchViewController: UIViewController, UIPickerViewDelegate, UIPickerViewDataSource {
     

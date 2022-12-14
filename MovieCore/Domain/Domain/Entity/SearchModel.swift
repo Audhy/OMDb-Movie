@@ -14,11 +14,19 @@ public struct SearchModel: Hashable, Codable {
 }
 
 public struct Search: Hashable, Codable {
-    public let title: String
-    public let year: String
-    public let imdbID: String
-    public let type: String
-    public let poster: String
+    public var title: String?
+    public var year: String?
+    public var imdbID: String?
+    public var type: String?
+    public var poster: String?
+    
+    init(title: String? = nil, year: String? = nil, imdbID: String? = nil, type: String? = nil, poster: String? = nil) {
+        self.title = title
+        self.year = year
+        self.imdbID = imdbID
+        self.type = type
+        self.poster = poster
+    }
     
     enum CodingKeys: String, CodingKey {
            case title = "Title"
